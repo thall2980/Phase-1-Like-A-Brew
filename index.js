@@ -23,4 +23,31 @@ function renderBeers(data) {
   beerDescription = document.createElement("h3");
   beerContainer.append(beerDescription);
   beerDescription.textContent = data.description;
+
+  likeContainer = document.createElement("div");
+  beerContainer.append(likeContainer);
+  likeImage = document.createElement("img");
+  likeImage.src =
+    "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png";
+  likeButton = document.createElement("btn");
+  likeButton.textContent = "LIKE";
+  likeCounter = document.createElement("h3");
+  likeCounter.textContent = "0";
+  likeContainer.append(likeImage, likeButton, likeCounter);
+
+  likeButton.addEventListener("click", () => {
+    likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
+    return likeCounter;
+  });
+
+  dislikeContainer = document.createElement("div");
+  beerContainer.append(dislikeContainer);
+  dislikeImage = document.createElement("img");
+  dislikeImage.src =
+    "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-down.png";
+  dislikeButton = document.createElement("btn");
+  dislikeButton.textContent = "DISLIKE";
+  dislikeCounter = document.createElement("h3");
+  dislikeCounter.textContent = "# Dislikes";
+  dislikeContainer.append(dislikeImage, dislikeButton, dislikeCounter);
 }
