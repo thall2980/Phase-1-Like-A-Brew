@@ -37,7 +37,6 @@ function renderBeers(data) {
 
   likeButton.addEventListener("click", () => {
     likeCounter.textContent = parseInt(likeCounter.textContent) + 1;
-    return likeCounter;
   });
 
   dislikeContainer = document.createElement("div");
