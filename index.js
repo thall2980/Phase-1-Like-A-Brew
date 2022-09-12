@@ -31,7 +31,7 @@ function renderBeers(data) {
     "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png";
   likeButton = document.createElement("btn");
   likeButton.textContent = "LIKE";
-  likeCounter = document.createElement("h3");
+  let likeCounter = document.createElement("h3");
   likeCounter.textContent = "0";
   likeContainer.append(likeImage, likeButton, likeCounter);
 
@@ -46,7 +46,11 @@ function renderBeers(data) {
     "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-down.png";
   dislikeButton = document.createElement("btn");
   dislikeButton.textContent = "DISLIKE";
-  dislikeCounter = document.createElement("h3");
-  dislikeCounter.textContent = "# Dislikes";
+  let dislikeCounter = document.createElement("h3");
+  dislikeCounter.textContent = "0";
   dislikeContainer.append(dislikeImage, dislikeButton, dislikeCounter);
+
+  dislikeButton.addEventListener("click", () => {
+    dislikeCounter.textContent = parseInt(dislikeCounter.textContent) + 1;
+  });
 }
