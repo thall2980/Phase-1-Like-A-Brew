@@ -13,6 +13,7 @@ function renderBeers(data) {
   beerName.textContent = data.name;
 
   beerImage = document.createElement("img");
+  beerImage.className = "image"
   beerContainer.append(beerImage);
   beerImage.src = data.image_url;
 
