@@ -3,19 +3,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
-    <header>Like-A-Beer</header>
-
+    <header>Like-A-Brew  
+      <button onclick="enableLightMode()">Light</button>  
+      <button onclick="enableDarkMode()">Dark</button>
+    </header>
     <link rel="stylesheet" href="style.css" />
     <script defer src="index.js"></script>
   </head>
-
-  <body>
-    <div>
-      <h1></h1>
-    </div>
+  <body>             
     <div>
       <ol id="beer-list"></ol>
-    </div>
+    </div> 
+    <script>
+      function enableLightMode(){    
+        document.body.classList.remove("dark");    
+      }    
+      function enableDarkMode(){    
+        document.body.classList.add("dark");   
+      }          
+    </script>  
   </body>
 </html>
