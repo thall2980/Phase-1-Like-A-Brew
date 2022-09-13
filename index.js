@@ -2,12 +2,6 @@ fetch("https://api.punkapi.com/v2/beers")
   .then((res) => res.json())
   .then((data) => data.forEach(renderBeers));
 
-const container = document.querySelector(".container");
-const toggle = document.querySelector(".toggle");
-
-toggle.addEventListener("click", () => {
-  container.classList.toggle("dark");
-})
 
 function renderBeers(data) {
   const beerList = document.querySelector("#beer-list");
