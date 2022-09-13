@@ -1,8 +1,48 @@
+const beerParent = document.querySelector("#beer-list-parent");
+let beerData = [];
+
 fetch("https://api.punkapi.com/v2/beers")
   .then((res) => res.json())
-  .then((data) => data.forEach(renderBeers));
+  .then((data) => {
+    beerData = data;
+    handleFilter(data);
+    beerData.forEach(renderBeers);
+    beerData.forEach(sortBeer);
+  });
 
-const beerList = document.querySelector("#beer-list");
+function handleFilter(beers) {
+  let value = 1000;
+  const smallButton = document.querySelector("#small");
+  const mediumButton = document.querySelector("#medium");
+  const largeButton = document.querySelector("#large");
+  smallButton.addEventListener("click", () => {
+    value = 5;
+    console.log(value);
+    const filterArray = beers.filter((beer) => {
+      return beer.abv < value;
+    });
+    getData(filterArray);
+  });
+  mediumButton.addEventListener("click", () => {
+    value = 10;
+    console.log(value);
+    const filterArray = beers.filter((beer) => {
+      return beer.abv < value && beer.abv >= 5;
+    });
+    getData(filterArray);
+  });
+  largeButton.addEventListener("click", () => {
+    console.log(value);
+    const filterArray = beers.filter((beer) => {
+      return beer.abv > 10;
+    });
+    getData(filterArray);
+  });
+}
+
+function getData(filterData) {
+  console.log(filterData);
+}
 
 function renderBeers(data) {
   const beerList = document.querySelector("#beer-list");
@@ -57,10 +97,6 @@ function renderBeers(data) {
     dislikeCounter.textContent = parseInt(dislikeCounter.textContent) + 1;
   });
 }
-
-fetch("https://api.punkapi.com/v2/beers")
-  .then((res) => res.json())
-  .then((data) => data.forEach(sortBeer));
 
 function sortBeer(data) {
   if (data.abv < 4.9) {
