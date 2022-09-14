@@ -39,9 +39,6 @@ function handleFilter(beers) {
       return beer.abv > value;
     });
     showFilterData(filterArray);
-  });
-  homeButton.addEventListener("click", (beer) => {
-    return beer;
   });  
 }
 
