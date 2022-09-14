@@ -80,7 +80,7 @@ function beerContainerCreation(data) {
   beerABV = document.createElement("h2");
   beerABV.className = "beer-ABV";
   beerContainer.append(beerABV);
-  beerABV.textContent = data.abv;
+  beerABV.textContent = data.abv + " ABV";
 
   beerDescription = document.createElement("h3");
   beerDescription.className = "beer-description";

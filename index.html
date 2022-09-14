@@ -11,8 +11,6 @@
     <div id="wrapper">
       <header>
         <h1 class="header-title">Like-A-Brew</h1>
-        <button class="" onclick="enableLightMode()">Light Mode</button>
-        <button class="" onclick="enableDarkMode()">Dark Mode</button>
         <div id="filter-button-position">
           <button id="small" class="filter-button">Less than 5 ABV</button>
           <div class="spacing-div"></div>
@@ -23,7 +21,10 @@
           <button id="show-all" class="filter-button">Show All</button>
         </div>
       </header>
-
+      <div>
+        <button class="" onclick="enableLightMode()">Light Mode</button>
+        <button class="" onclick="enableDarkMode()">Dark Mode</button>
+      </div>
       <div id="beer-list-parent">
         <ol id="original-beer-list"></ol>
       </div>
