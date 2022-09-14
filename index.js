@@ -88,6 +88,7 @@ function beerContainerCreation(data) {
   beerDescription.textContent = data.description;
 
   likeContainer = document.createElement("div");
+  likeContainer.className = "vote-container";
   beerContainer.append(likeContainer);
   likeImage = document.createElement("img");
   likeImage.className = "vote-image";
@@ -106,6 +107,7 @@ function beerContainerCreation(data) {
   });
 
   dislikeContainer = document.createElement("div");
+  dislikeContainer.className = "vote-container";
   beerContainer.append(dislikeContainer);
   dislikeImage = document.createElement("img");
   dislikeImage.className = "vote-image";
