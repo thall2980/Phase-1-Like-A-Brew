@@ -16,6 +16,13 @@ body.dark {
   cursor: pointer;
 }
 
+.vote-image {
+  flex: 0 1 auto;
+  height: 30px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
 .header-title {
   font-family: luminari, fantasy;
   font-size: 300%;
@@ -84,4 +91,56 @@ header {
   margin-left: auto;
   margin-right: auto;
   width: 2000px;
+}
+
+.beer-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-basis: 400px;
+  max-width: 300 px;
+  padding: 50px;
+  background-color: rgb(160, 125, 80);
+}
+
+.beer-name {
+  order: 2;
+  flex-grow: 1;
+  text-align: center;
+  flex-basis: 400px;
+  max-width: 300 px;
+  min-width: 150px;
+}
+
+.image {
+  order: 1;
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 300 px;
+}
+
+.beer-ABV {
+  order: 3;
+  flex-grow: 1;
+  text-align: center;
+  flex-basis: 400px;
+  max-width: 300 px;
+  min-width: 150px;
+}
+
+.beer-description {
+  order: 4;
+  flex-grow: 1;
+  flex-basis: 400px;
+  max-width: 300 px;
+  min-width: 150px;
+}
+
+.vote-container {
+  order: 5;
+  flex-grow: 1;
+  flex-basis: 200px;
+  max-width: 300px;
+  min-width: 150px;
+  text-align: center;
 }
