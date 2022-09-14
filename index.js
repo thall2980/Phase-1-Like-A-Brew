@@ -29,7 +29,7 @@ function handleFilter(beers) {
   });
   largeButton.addEventListener("click", () => {
     const filterArray = beers.filter((beer) => {
-      return beer.abv > 10;
+      return beer.abv >= 10;
     });
     showFilterData(filterArray);
   });
@@ -44,9 +44,11 @@ function handleFilter(beers) {
 
 function showFilterData(data) {
   const newBeerList = document.createElement("ol");
+  newBeerList.className = "beer-list";
   data.forEach(updateBeers);
   function updateBeers(data) {
     beerContainer = document.createElement("div");
+    beerContainer.className = "beer-container";
     newBeerList.append(beerContainer);
     beerContainerCreation(data);
     beerParent.removeChild(beerParent.firstElementChild);
@@ -55,8 +57,10 @@ function showFilterData(data) {
 }
 
 function renderBeers(data) {
-  const beerList = document.querySelector("#beer-list");
+  const beerList = document.querySelector("#original-beer-list");
+  beerList.className = "beer-list";
   beerContainer = document.createElement("div");
+  beerContainer.className = "beer-container";
   beerList.append(beerContainer);
 
   beerContainerCreation(data);
@@ -64,7 +68,7 @@ function renderBeers(data) {
 
 function beerContainerCreation(data) {
   beerName = document.createElement("h1");
-  beerName.className = "";
+  beerName.className = "beer-name";
   beerContainer.append(beerName);
   beerName.textContent = data.name;
 
@@ -74,22 +78,27 @@ function beerContainerCreation(data) {
   beerImage.src = data.image_url;
 
   beerABV = document.createElement("h2");
+  beerABV.className = "beer-ABV";
   beerContainer.append(beerABV);
   beerABV.textContent = data.abv;
 
   beerDescription = document.createElement("h3");
+  beerDescription.className = "beer-description";
   beerContainer.append(beerDescription);
   beerDescription.textContent = data.description;
 
   likeContainer = document.createElement("div");
   beerContainer.append(likeContainer);
   likeImage = document.createElement("img");
+  likeImage.className = "vote-image";
   likeImage.src =
     "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png";
   likeButton = document.createElement("button");
+  likeButton.className = "vote-button";
   likeButton.textContent = "LIKE";
   let likeCounter = document.createElement("h3");
   likeCounter.textContent = "0";
+  likeCounter.className = "vote-counter";
   likeContainer.append(likeImage, likeButton, likeCounter);
 
   likeButton.addEventListener("click", () => {
@@ -99,12 +108,15 @@ function beerContainerCreation(data) {
   dislikeContainer = document.createElement("div");
   beerContainer.append(dislikeContainer);
   dislikeImage = document.createElement("img");
+  dislikeImage.className = "vote-image";
   dislikeImage.src =
     "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-down.png";
   dislikeButton = document.createElement("button");
+  dislikeButton.className = "vote-button";
   dislikeButton.textContent = "DISLIKE";
   let dislikeCounter = document.createElement("h3");
   dislikeCounter.textContent = "0";
+  dislikeCounter.className = "vote-counter";
   dislikeContainer.append(dislikeImage, dislikeButton, dislikeCounter);
 
   dislikeButton.addEventListener("click", () => {
