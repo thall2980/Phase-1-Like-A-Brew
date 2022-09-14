@@ -86,7 +86,7 @@ function beerContainerCreation(data) {
   beerABV = document.createElement("h2");
   beerABV.className = "beer-ABV";
   beerContainer.append(beerABV);
-  beerABV.textContent = data.abv;
+  beerABV.textContent = data.abv + " ABV ";
 
   likeContainer = document.createElement("div");
   likeContainer.className = "vote-container";
