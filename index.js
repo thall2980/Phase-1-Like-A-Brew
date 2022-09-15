@@ -142,11 +142,6 @@ function randomFoodPairing(data) {
   const randomArrayItem = Math.floor(Math.random() * data.length);
   console.log(randomArrayItem);
   const reccomendation = data[randomArrayItem];
-  console.log(
-    reccomendation.image_url,
-    reccomendation.name,
-    reccomendation.food_pairing[getRndInteger(0, 2)]
-  );
   const pairingParent = document.createElement("div");
   const randomFood = document.querySelector("#randomFood");
   selectedImage = document.createElement("img");
