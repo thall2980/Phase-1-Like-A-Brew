@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="index.js"></script>
   </head>
-
+  <script>
+    function enableLightMode() {
+      document.body.classList.remove("dark");
+    }
+    function enableDarkMode() {
+      document.body.classList.add("dark");
+    }
+  </script>
   <body>
     <div id="wrapper">
       <header>
@@ -21,10 +28,12 @@
           <button id="show-all" class="filter-button">Show All</button>
         </div>
       </header>
-      <div>
-        <button class="" onclick="enableLightMode()">Light Mode</button>
-        <button class="" onclick="enableDarkMode()">Dark Mode</button>
+
+      <div class="darkMode">
+        <button class="btnDark" onclick="enableLightMode()">Light Mode</button>
+        <button class="btnDark" onclick="enableDarkMode()">Dark Mode</button>
       </div>
+
       <div id="beer-list-parent">
         <ol id="original-beer-list"></ol>
       </div>
@@ -36,6 +45,17 @@
           document.body.classList.add("dark");
         }
       </script>
+      <div id="randomContainer" class="randContainer">
+        <div class="buttonDiv">
+          <button id="randomButton" class="filter-button">
+            Random Food Pairing
+          </button>
+        </div>
+        <div class="gap-div"></div>
+        <div id="randomFood">
+          <div></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

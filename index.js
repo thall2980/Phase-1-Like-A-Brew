@@ -9,6 +9,7 @@ fetch("https://api.punkapi.com/v2/beers")
   .then((data) => {
     handleFilter(data);
     data.forEach(renderBeers);
+    handleClick(data);
   });
 
 function handleFilter(beers) {
@@ -67,25 +68,25 @@ function renderBeers(data) {
 }
 
 function beerContainerCreation(data) {
-  beerName = document.createElement("h1");
-  beerName.className = "beer-name";
-  beerContainer.append(beerName);
-  beerName.textContent = data.name;
-
   beerImage = document.createElement("img");
   beerImage.className = "image";
   beerContainer.append(beerImage);
   beerImage.src = data.image_url;
 
-  beerABV = document.createElement("h2");
-  beerABV.className = "beer-ABV";
-  beerContainer.append(beerABV);
-  beerABV.textContent = data.abv + " ABV";
+  beerName = document.createElement("h1");
+  beerName.className = "beer-name";
+  beerContainer.append(beerName);
+  beerName.textContent = data.name;
 
   beerDescription = document.createElement("h3");
   beerDescription.className = "beer-description";
   beerContainer.append(beerDescription);
   beerDescription.textContent = data.description;
+
+  beerABV = document.createElement("h2");
+  beerABV.className = "beer-ABV";
+  beerContainer.append(beerABV);
+  beerABV.textContent = data.abv + " ABV ";
 
   likeContainer = document.createElement("div");
   likeContainer.className = "vote-container";
@@ -124,4 +125,38 @@ function beerContainerCreation(data) {
   dislikeButton.addEventListener("click", () => {
     dislikeCounter.textContent = parseInt(dislikeCounter.textContent) + 1;
   });
+}
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function handleClick(data) {
+  const randomButton = document.querySelector("#randomButton");
+  randomButton.addEventListener("click", () => {
+    randomFoodPairing(data);
+  });
+}
+
+function randomFoodPairing(data) {
+  const randomArrayItem = Math.floor(Math.random() * data.length);
+  console.log(randomArrayItem);
+  const reccomendation = data[randomArrayItem];
+  console.log(
+    reccomendation.image_url,
+    reccomendation.name,
+    reccomendation.food_pairing[getRndInteger(0, 2)]
+  );
+  const pairingParent = document.createElement("div");
+  const randomFood = document.querySelector("#randomFood");
+  selectedImage = document.createElement("img");
+  selectedImage.className = "image";
+  selectedImage.src = reccomendation.image_url;
+  selectedName = document.createElement("h3");
+  selectedName.textContent = reccomendation.name;
+  selectedFood = document.createElement("h4");
+  selectedFood.textContent = reccomendation.food_pairing[getRndInteger(0, 2)];
+  pairingParent.append(selectedImage, selectedName, selectedFood);
+  randomFood.removeChild(randomFood.firstElementChild);
+  randomFood.appendChild(pairingParent);
 }
