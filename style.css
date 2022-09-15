@@ -183,3 +183,7 @@ header {
   order: 2;
   width: 200px;
 }
+.darkMode {
+  margin-left: 35px;
+  padding: 5px;
+}
